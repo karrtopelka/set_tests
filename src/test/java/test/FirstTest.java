@@ -14,7 +14,7 @@ public class FirstTest {
 
     @BeforeClass
     public void openURL() throws InterruptedException {
-        System.setProperty("webdriver.chrome.driver", "E:/Downloads/cd/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "D:/Documents/karrtopelka/learning/SET/chromedriver.exe");
         driver = new ChromeDriver();
         driver.get("https://demo.opencart.com");
         driver.manage().window().maximize();
