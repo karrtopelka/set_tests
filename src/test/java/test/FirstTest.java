@@ -23,22 +23,43 @@ public class FirstTest {
 
     @Test
     public void contactUsTest() throws InterruptedException {
-        WebElement searchButton = driver.findElement(By.cssSelector("div > ul > li > a[href$=\"contact\"]"));
+        WebElement searchButton = driver.findElement(By.xpath("//span[text() = 'My Account']"));
         searchButton.click();
-        WebElement yourName = driver.findElement(By.xpath("//input[contains(@id,'input-name')]"));
+        Thread.sleep(2000);
+        WebElement clickRegister = driver.findElement(By.cssSelector("a[href$=\"register\"]"));
+        clickRegister.click();
+        WebElement yourName = driver.findElement(By.xpath("//input[contains(@id,'input-firstname')]"));
         yourName.sendKeys("Max");
         Thread.sleep(2000);
+        WebElement yourLastName = driver.findElement(By.xpath("//input[contains(@id,'input-lastname')]"));
+        yourLastName.sendKeys("Karrtopelka");
+        Thread.sleep(2000);
         WebElement yourEmail = driver.findElement(By.xpath("//input[contains(@id,'input-email')]"));
-        yourEmail.sendKeys("Karrtopelka@gmail.com");
+        yourEmail.sendKeys("Karrrrtopelka@gmail.com");
         Thread.sleep(2000);
-        WebElement yourEnquiry = driver.findElement(By.xpath("//textarea[contains(@id,'input-enquiry')]"));
-        yourEnquiry.sendKeys("Hi I love my dog and cat and love loving with love");
+        WebElement yourPhone = driver.findElement(By.xpath("//input[contains(@id,'input-telephone')]"));
+        yourPhone.sendKeys("+380677772558");
         Thread.sleep(2000);
-        WebElement submitButton = driver.findElement(By.xpath("//div[contains(@class, 'pull-right')]/input"));
+        WebElement yourPassword = driver.findElement(By.xpath("//input[contains(@id,'input-password')]"));
+        yourPassword.sendKeys("12345678990");
+        Thread.sleep(2000);
+        WebElement yourPasswordSecond = driver.findElement(By.xpath("//input[contains(@id,'input-confirm')]"));
+        yourPasswordSecond.sendKeys("12345678990");
+        Thread.sleep(2000);
+        WebElement newsletter = driver.findElement(By.xpath("//input[contains(@name,'newsletter')]"));
+        newsletter.click();
+        Thread.sleep(2000);
+        WebElement policy = driver.findElement(By.xpath("//input[contains(@name,'agree')]"));
+        policy.click();
+        Thread.sleep(2000);
+        WebElement submitButton = driver.findElement(By.xpath("//div[contains(@class, 'pull-right')]/input[contains(@value, 'Continue')]"));
         submitButton.click();
         Thread.sleep(2000);
-        WebElement contButton = driver.findElement(By.cssSelector("a[href$=\"home\"]"));
-        contButton.click();
+        WebElement continueButton = driver.findElement(By.xpath("//div[contains(@class, 'pull-right')]/a[text()='Continue']"));
+        continueButton.click();
+        Thread.sleep(2000);
+        WebElement goHome = driver.findElement(By.cssSelector("a[href$=\"home\"]"));
+        goHome.click();
     }
 
     @AfterClass
